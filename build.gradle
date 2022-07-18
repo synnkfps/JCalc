@@ -1,0 +1,46 @@
+plugins {
+    id "java"
+}
+
+version = "${project_Version}"
+group = "${project_Group}"
+archivesBaseName = project_BaseName
+
+java.toolchain.languageVersion = JavaLanguageVersion.of(8)
+tasks.withType(JavaCompile)*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenCentral()
+    maven { url "https://jitpack.io/" }
+    maven { url "https://jcenter.bintray.com/" }
+}
+
+configurations {
+    include
+    implementation.extendsFrom include
+}
+
+dependencies {
+    include 'com.formdev:flatlaf:2.3'
+}
+
+task shadowJar(type: Jar) {
+    classifier 'release'
+    with jar
+    from {
+        configurations.include.collect {
+            zipTree(it).matching {
+                // exclude possible duplicates
+                exclude 'META-INF/**', 'module-info.class'
+            }
+        }
+    }
+
+    manifest {
+        attributes(
+                "Main-Class": "me.synnk.Main"
+        )
+    }
+}
+
+jar.dependsOn(shadowJar)
