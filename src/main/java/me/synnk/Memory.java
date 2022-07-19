@@ -6,21 +6,21 @@ import me.synnk.Main;
 import java.util.ArrayList;
 
 public class Memory {
-    JTextField result = Main.result;
-    ArrayList<String> basicMemory = Main.basicMemory;
-    JComboBox<String> memory_read = Main.memory_read;
-    JComboBox<String> memory_save = Main.memory_save;
-    JComboBox<String> memory_add_display_value = Main.memory_add_display_value;
+    static JTextField result = Main.result;
+    static ArrayList<String> basicMemory = Main.basicMemory;
+    static JComboBox<String> memory_read = Main.memory_read;
+    static JComboBox<String> memory_save = Main.memory_save;
+    static JComboBox<String> memory_add_display_value = Main.memory_add_display_value;
     
     // Copy Display System
-    public void copyDisplayToMemory() {
+    public static void copyDisplayToMemory() {
         if (basicMemory.size() == 0) {
             msgBox("The memory needs to have at least 1 value in it.\n");
         }
     }
 
     // Write Memory System
-    public void writeMemory(String input) {
+    public static void writeMemory(String input) {
         if (memory_read.isEnabled() && memory_add_display_value.isEnabled()) {
             System.out.print("Already enabled\n");
         } else {
@@ -48,7 +48,7 @@ public class Memory {
 
     }
     // Reset System
-    public void resetMemory() {
+    public static void resetMemory() {
         if (basicMemory.size() == 0) {
             msgBox("The memory is already empty.\n");
         }
@@ -90,7 +90,7 @@ public class Memory {
         System.out.print("Memory got reset.\n");
 
     }
-    public void msgBox(String text) {
+    public static void msgBox(String text) {
         JOptionPane.showMessageDialog(null, text);
     }
     

@@ -1,5 +1,6 @@
 package me.synnk;
 
+import me.synnk.Backend;
 import me.synnk.Memory;
 import java.awt.*;
 import java.util.ArrayList;
@@ -90,11 +91,21 @@ public class Main extends JFrame {
 
             cButton.addActionListener(e -> {
                 result.setText("0");
+                if (Backend.operation != "") {
+                    Backend.secondaryBackend = "";
+                } else if (Backend.operation == "") {
+                    Backend.secondaryBackend = "";
+                    Backend.backend = "";
+                }
             });
 
-            // Clear Memory
+            // Clear All
             ACButton.setText("AC");
-            ACButton.setEnabled(false); // TODO
+            ACButton.addActionListener(e -> {
+                result.setText("0");
+                Backend.backend = "";
+                Backend.secondaryBackend = "";
+            });
             mainPanel.add(ACButton, new GridBagConstraints(4, 2, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Backspace
@@ -124,19 +135,12 @@ public class Main extends JFrame {
             sqrtButton.setText("sqrt");
             mainPanel.add(sqrtButton, new GridBagConstraints(5, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            // Divide
-            divide.setText("/");
-            mainPanel.add(divide, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             // 1
             Button1.setText("1");
             mainPanel.add(Button1, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button1.addActionListener(e -> {
-                result.setText(result.getText() + Button1.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(1);
             });
 
             // 2
@@ -144,10 +148,7 @@ public class Main extends JFrame {
             mainPanel.add(Button2, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button2.addActionListener(e -> {
-                result.setText(result.getText() + Button2.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(2);
             });
 
             // 3
@@ -155,22 +156,15 @@ public class Main extends JFrame {
             mainPanel.add(Button3, new GridBagConstraints(3, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button3.addActionListener(e -> {
-                result.setText(result.getText() + Button3.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(3);
             });
-
 
             // 4
             Button4.setText("4");
             mainPanel.add(Button4, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button4.addActionListener(e -> {
-                result.setText(result.getText() + Button4.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(4);
             });
 
             // 5
@@ -178,10 +172,7 @@ public class Main extends JFrame {
             mainPanel.add(Button5, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button5.addActionListener(e -> {
-                result.setText(result.getText() + Button5.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(5);
             });
 
             // 6
@@ -189,10 +180,7 @@ public class Main extends JFrame {
             mainPanel.add(Button6, new GridBagConstraints(3, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button6.addActionListener(e -> {
-                result.setText(result.getText() + Button6.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(6);
             });
 
             // 7
@@ -200,10 +188,7 @@ public class Main extends JFrame {
             mainPanel.add(Button7, new GridBagConstraints(1, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button7.addActionListener(e -> {
-                result.setText(result.getText() + Button7.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(7);
             });
 
             // 8
@@ -211,10 +196,7 @@ public class Main extends JFrame {
             mainPanel.add(Button8, new GridBagConstraints(2, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button8.addActionListener(e -> {
-                result.setText(result.getText() + Button8.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(8);
             });
 
             // 9
@@ -222,10 +204,7 @@ public class Main extends JFrame {
             mainPanel.add(Button9, new GridBagConstraints(3, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button9.addActionListener(e -> {
-                result.setText(result.getText() + Button9.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(9);
             });
 
             // 0
@@ -233,20 +212,43 @@ public class Main extends JFrame {
             mainPanel.add(Button0, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             Button0.addActionListener(e -> {
-                result.setText(result.getText() + Button0.getText());
-                if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                    result.setText(result.getText().substring(1));
-                }
+                Backend.updateDisplay(0);
             });
 
             // Plus / Add
             add.setText("+");
+            add.addActionListener(e -> {
+                Backend.addToBackend();
+                Backend.operation = "+";
+            });
             mainPanel.add(add, new GridBagConstraints(4, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
 
             // Subtract
             subtract.setText("-");
+            subtract.addActionListener(e -> {
+                Backend.addToBackend();
+                Backend.operation = "-";
+            });
             mainPanel.add(subtract, new GridBagConstraints(4, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
+            // Multiply
+            multiply.setText("*");
+            multiply.addActionListener(e -> {
+                Backend.addToBackend();
+                Backend.operation = "*";
+            });
+
+            mainPanel.add(multiply, new GridBagConstraints(4, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
+
+            // Divide
+            divide.setText("/");
+            divide.addActionListener(e -> {
+                Backend.addToBackend();
+                Backend.operation = "/";
+            });
+            mainPanel.add(divide, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Change Sign
             change_sign.setText("+/-");
@@ -256,10 +258,6 @@ public class Main extends JFrame {
             // Percent
             percent.setText("%");
             mainPanel.add(percent, new GridBagConstraints(5, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
-            // Multiply
-            multiply.setText("*");
-            mainPanel.add(multiply, new GridBagConstraints(4, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Dot
             decimal_point.setText(",");
@@ -276,10 +274,10 @@ public class Main extends JFrame {
                 String selected = (String) memory_save.getSelectedItem();
                 switch (selected) {
                     case "MS":
-                        new Memory().writeMemory(result.getText());
+                            Memory.result.getText();
                         break;
                     case "MRT":
-                        new Memory().resetMemory();
+                            Memory.resetMemory();
                         break;
                     default:
                         // TODO: Backend holder
@@ -317,8 +315,8 @@ public class Main extends JFrame {
                 String selected = (String) memory_read.getSelectedItem();
                 switch (selected) {
                     case "M+":
-                        new Memory(). copyDisplayToMemory();
-                        break;
+                        Memory.copyDisplayToMemory();
+                    break;
                 }
             });
             memory_add_display_value.setEnabled(false);
@@ -331,6 +329,9 @@ public class Main extends JFrame {
 
             // Equals
             equals.setText("=");
+            equals.addActionListener(e -> {
+                Backend.calculate();
+            });
             mainPanel.add(equals, new GridBagConstraints(5, 10, 1, 3, 0.0, 0.0,
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 0), 0, 30));
