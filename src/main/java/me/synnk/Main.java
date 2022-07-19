@@ -2,12 +2,16 @@ package me.synnk;
 
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.*;
 import javax.swing.border.*;
 
 public class Main extends JFrame {
     private JPanel mainPanel;
     public static JTextField result;
+    public static String last_string;
+    public static String backspace_output;
     public static ArrayList<String> basicMemory = new ArrayList<>();
 
     // Memory
@@ -83,7 +87,6 @@ public class Main extends JFrame {
                 } else if (Backend.operation == "") {
                     Backend.secondaryBackend = "";
                     Backend.backend = "";
-
                 }
             });
 
@@ -104,6 +107,11 @@ public class Main extends JFrame {
 
             backspace.addActionListener(e -> {
                 String r = result.getText();
+                Pattern mp = Pattern.compile(".$");
+                Matcher toBeExcluded = mp.matcher(r);
+                if (toBeExcluded.find()) {
+                    backspace_output = toBeExcluded.group();
+                }
                 result.setText(r.replaceAll(".$", ""));
                 if (result.getText().length() == 0 && !result.getText().startsWith("0")) {
                     result.setText("0");
@@ -124,7 +132,7 @@ public class Main extends JFrame {
             });
             mainPanel.add(close_parenthesis, new GridBagConstraints(2, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            //---- sqrtButton ----
+            // Square Root
             sqrtButton.setText("sqrt");
             sqrtButton.addActionListener(e -> {
                 int parsed_result = Math.round(Integer.parseInt(result.getText()));
@@ -260,17 +268,6 @@ public class Main extends JFrame {
                 Backend.operation = "/";
             });
             mainPanel.add(divide, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
-            // Change Sign
-            change_sign.setText("+/-");
-            change_sign.addActionListener(e -> {
-                int parsed_result = Integer.parseInt(result.getText());
-                int math = parsed_result-(parsed_result * 2);
-
-                result.setText(String.valueOf(math));
-            });
-            mainPanel.add(change_sign, new GridBagConstraints(3, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             // Percent
             percent.setText("%");
             percent.addActionListener(e -> {
@@ -284,6 +281,17 @@ public class Main extends JFrame {
                 Backend.operation = "%";
             });
             mainPanel.add(percent, new GridBagConstraints(5, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
+            // Change Sign
+            change_sign.setText("+/-");
+            change_sign.addActionListener(e -> {
+                int parsed_result = Integer.parseInt(result.getText());
+                int math = parsed_result-(parsed_result * 2);
+
+                result.setText(String.valueOf(math));
+            });
+            mainPanel.add(change_sign, new GridBagConstraints(3, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
 
             // Dot
             decimal_point.setText(".");
@@ -317,7 +325,6 @@ public class Main extends JFrame {
                 }
             });
 
-            // memory_save.setEnabled(false); // TODO
             mainPanel.add(memory_save, new GridBagConstraints(3, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Read from Memory
@@ -368,6 +375,23 @@ public class Main extends JFrame {
                     GridBagConstraints.CENTER, GridBagConstraints.BOTH,
                     new Insets(0, 0, 0, 0), 0, 30));
         }
+    }
+    public static void updateInput() {
+        String r = result.getText();
+        Pattern mp = Pattern.compile(".$");
+        Matcher toBeExcluded = mp.matcher(r);
+        if (toBeExcluded.find()) {
+            last_string = toBeExcluded.group();
+        }
+    }
+    public static String getLastInput() {
+        String r = result.getText();
+        Pattern mp = Pattern.compile(".$");
+        Matcher toBeExcluded = mp.matcher(r);
+        if (toBeExcluded.find()) {
+            last_string = toBeExcluded.group();
+        }
+        return last_string;
     }
 
     public Main() {

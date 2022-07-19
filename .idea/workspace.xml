@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!">
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="~ Removed Parenthesis auto &quot;*&quot; due to bugs.&#10;! The project is basically done, I just need to:&#10;  - Make M+ more complex (the real M+ function of a calculator makes its own memory value, which gets increased by the value of the display)&#10;  - Add some better handling to each button&#10;  - Make the code more understandable&#10;  - Decrease the size of the jar&#10;  - Add formula redaction on the display, like putting * after &quot;)&quot; if there aren't any operation incoming&#10;  - Change &quot;.&quot; with &quot;,&quot; in button and display.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" afterDir="false" />
     </list>
@@ -287,7 +289,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658262588485</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="+ Added Parentheses support (if you do not select an operator after putting parentheses, it will automatically put a * for you (math rules))&#10;! Project is nearly done!">
+      <created>1658263559028</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1658263559028</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -313,6 +322,8 @@
     <MESSAGE value="+ Added Float Support (little bloated i know)&#10;+ Added Change Sign&#10;+ Added Square Root&#10;+ Added Intelligent Result Display" />
     <MESSAGE value="+ Added Parenthesis Support&#10;+ Added Math evaluation" />
     <MESSAGE value="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!" />
+    <MESSAGE value="+ Added Parentheses support (if you do not select an operator after putting parentheses, it will automatically put a * for you (math rules))&#10;! Project is nearly done!" />
+    <MESSAGE value="~ Removed Parenthesis auto &quot;*&quot; due to bugs.&#10;! The project is basically done, I just need to:&#10;  - Make M+ more complex (the real M+ function of a calculator makes its own memory value, which gets increased by the value of the display)&#10;  - Add some better handling to each button&#10;  - Make the code more understandable&#10;  - Decrease the size of the jar&#10;  - Add formula redaction on the display, like putting * after &quot;)&quot; if there aren't any operation incoming&#10;  - Change &quot;.&quot; with &quot;,&quot; in button and display." />
+    <option name="LAST_COMMIT_MESSAGE" value="~ Removed Parenthesis auto &quot;*&quot; due to bugs.&#10;! The project is basically done, I just need to:&#10;  - Make M+ more complex (the real M+ function of a calculator makes its own memory value, which gets increased by the value of the display)&#10;  - Add some better handling to each button&#10;  - Make the code more understandable&#10;  - Decrease the size of the jar&#10;  - Add formula redaction on the display, like putting * after &quot;)&quot; if there aren't any operation incoming&#10;  - Change &quot;.&quot; with &quot;,&quot; in button and display." />
   </component>
 </project>

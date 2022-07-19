@@ -1,10 +1,4 @@
-plugins {
-    id "java"
-}
-
-version = "${project_Version}"
-group = "${project_Group}"
-archivesBaseName = project_BaseName
+plugins { id "java" }
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 tasks.withType(JavaCompile)*.options*.encoding = 'UTF-8'
@@ -12,7 +6,6 @@ tasks.withType(JavaCompile)*.options*.encoding = 'UTF-8'
 repositories {
     mavenCentral()
     maven { url "https://jitpack.io/" }
-    maven { url "https://jcenter.bintray.com/" }
 }
 
 configurations {
@@ -20,27 +13,14 @@ configurations {
     implementation.extendsFrom include
 }
 
-dependencies {
-    include 'net.objecthunter:exp4j:0.4.8'
-}
+dependencies { include 'net.objecthunter:exp4j:0.4.8' }
 
 task shadowJar(type: Jar) {
     classifier 'release'
     with jar
-    from {
-        configurations.include.collect {
-            zipTree(it).matching {
-                // exclude possible duplicates
-                exclude 'META-INF/**', 'module-info.class'
-            }
-        }
-    }
+    from { configurations.include.collect { zipTree(it).matching { exclude 'META-INF/**', 'module-info.class' } } }
 
-    manifest {
-        attributes(
-                "Main-Class": "me.synnk.Main"
-        )
-    }
+    manifest { attributes("Main-Class": "me.synnk.Main") }
 }
 
 jar.dependsOn(shadowJar)

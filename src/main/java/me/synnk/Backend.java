@@ -4,6 +4,8 @@ package me.synnk;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
+import java.util.Objects;
+
 import static me.synnk.Main.result;
 
 public class Backend {
@@ -15,25 +17,21 @@ public class Backend {
     public static Boolean is_floated = false;
 
     public static void updateDisplay(String text) {
-
+        Main.updateInput();
         // Waiting == false | means that the user still did not press any operation
         if (!waiting) {
-            if (result.getText().endsWith(")")){
-                result.setText(result.getText() + "*" + text);
-            } else {
-                result.setText(result.getText() + text);
-                if (result.getText().length() > 1) {
-                    if (result.getText().startsWith("0")) {
-                        if (!is_floated) {
-                            result.setText(result.getText().substring(1));
-                        }
+            result.setText(result.getText() + text);
+            if (result.getText().length() > 1) {
+                if (result.getText().startsWith("0")) {
+                    if (!is_floated) {
+                        result.setText(result.getText().substring(1));
                     }
                 }
-                backend = result.getText();
             }
+            backend = result.getText();
         }
 
-        // Waiting == false | means that the user pressed any operation
+        // Waiting == true | means that the user pressed any operation
         if (waiting) {
             result.setText(result.getText() + text);
             if (result.getText().length() > 1 && result.getText().startsWith("0")) {
