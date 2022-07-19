@@ -4,8 +4,6 @@ package me.synnk;
 import net.objecthunter.exp4j.Expression;
 import net.objecthunter.exp4j.ExpressionBuilder;
 
-import java.util.Objects;
-
 import static me.synnk.Main.result;
 
 public class Backend {
