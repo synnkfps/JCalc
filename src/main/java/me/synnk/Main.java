@@ -1,12 +1,19 @@
 package me.synnk;
 
 import java.awt.*;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.*;
 
 public class Main extends JFrame {
     private JPanel mainPanel;
-    private JTextField result;
+    public JTextField result;
+    ArrayList<String> basicMemory = new ArrayList<String>();
+
+    // Memory
+    public JComboBox<String> memory_save = new JComboBox<>();
+    public JComboBox<String> memory_read = new JComboBox<>();
+    public JComboBox<String> memory_add_display_value = new JComboBox<>();
 
     private JButton Button0;
     private JButton Button1;
@@ -57,11 +64,6 @@ public class Main extends JFrame {
         JButton change_sign = new JButton();
         JButton decimal_point = new JButton();
 
-        // Memory
-        JComboBox<String> memory_save = new JComboBox<>();
-        JComboBox<String> memory_read = new JComboBox<>();
-        JComboBox<String> memory_add_display_value = new JComboBox<>();
-
         // Spacers
         JPanel vSpacer1 = new JPanel(null);
         JPanel vSpacer2 = new JPanel(null);
@@ -71,8 +73,7 @@ public class Main extends JFrame {
         JPanel vSpacer6 = new JPanel(null);
 
         {
-            mainPanel.setBorder(new CompoundBorder(new TitledBorder(new EmptyBorder(0, 0, 0, 0), "Calculator", TitledBorder.CENTER, TitledBorder.TOP, new Font("D\u0069alog", Font.ITALIC, 12), Color.black), mainPanel.getBorder()));
-            mainPanel.addPropertyChangeListener(e -> {if ("\u0062order".equals(e.getPropertyName())) throw new RuntimeException();});
+            mainPanel.setBorder(new EmptyBorder(new Insets(3, 3, 5, 3)));
             mainPanel.setLayout(new GridBagLayout());
             mainPanel.add(vSpacer1, new GridBagConstraints(2, 1, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.VERTICAL, new Insets(0, 0, 0, 0), 0, 0));
 
@@ -268,21 +269,43 @@ public class Main extends JFrame {
             memory_save.setModel(new DefaultComboBoxModel<>(new String[]{
                     "MS"
             }));
-            memory_save.setEnabled(false); // TODO
+
+            memory_save.addActionListener(e -> { // Simple Lambda
+                String selected = (String) memory_save.getSelectedItem();
+                switch (selected) {
+                    case "MS":
+                        writeMemory(result.getText());
+                        break;
+                }
+            });
+
+            // memory_save.setEnabled(false); // TODO
             mainPanel.add(memory_save, new GridBagConstraints(3, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Read from Memory
             memory_read.setModel(new DefaultComboBoxModel<>(new String[]{
                     "MR"
             }));
-            memory_read.setEnabled(false); // TODO
+
+            memory_read.addActionListener(e -> { // Simple Lambda
+                String selected = (String) memory_read.getSelectedItem();
+                switch (selected) {
+                    case "MR":
+                        // Nested for loop.
+                        readMemory();
+                        break;
+                    default:
+                        msgBox((String) memory_read.getSelectedItem());
+                }
+            });
+            // memory_read.setEnabled(false); // TODO
             mainPanel.add(memory_read, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Memory Add Display Value
             memory_add_display_value.setModel(new DefaultComboBoxModel<>(new String[]{
                     "M+"
             }));
-            memory_add_display_value.setEnabled(false); // TODO
+            // memory_add_display_value.setEnabled(false); // TODO
             mainPanel.add(memory_add_display_value, new GridBagConstraints(5, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             mainPanel.add(vSpacer3, new GridBagConstraints(2, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.VERTICAL, new Insets(0, 0, 0, 0), 0, 0));
@@ -298,6 +321,33 @@ public class Main extends JFrame {
         }
     }
 
+    public void writeMemory(String input) {
+        if (basicMemory.contains(input)) {
+            System.out.printf("%s is already in memory.\n", input);
+        } else {
+            try {
+                basicMemory.add(input);
+            } catch (Exception e) { } finally {
+                System.out.printf("Added %s to memory.\n", input);
+                memory_save.addItem(input);
+            }
+        }
+    }
+    public void readMemory() {
+        int i = 0;
+        for (String elm: basicMemory) {
+            i++;
+            if (memory_read.getModel().getElementAt(i) == elm) {
+                System.out.printf("%s Already in memory.\n", elm);
+            } else {
+                memory_read.addItem(elm);
+            }
+        }
+    }
+
+    public void msgBox(String text) {
+        JOptionPane.showMessageDialog(null, text);
+    }
     public Main() {
         initComponents();
         this.setContentPane(mainPanel);
@@ -312,5 +362,6 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         new Main();
     }
+
 
 }

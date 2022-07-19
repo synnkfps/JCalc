@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="moved to gradle">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="fixed not centered gui and removed &quot;Calculator&quot; label.">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/me.synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/me.synnk/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +93,7 @@
       <recent name="$PROJECT_DIR$/src/me.synnk" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Calculator [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="me.synnk.Main" />
       <module name="Calculator.main" />
@@ -233,6 +232,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="moved to gradle" />
-    <option name="LAST_COMMIT_MESSAGE" value="moved to gradle" />
+    <MESSAGE value="fixed not centered gui and removed &quot;Calculator&quot; label." />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed not centered gui and removed &quot;Calculator&quot; label." />
   </component>
 </project>
