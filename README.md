@@ -16,11 +16,11 @@ The `jar` will be on `\build\libs\`.
   - [X] Backspace 
   - [X] Button Inputing
   - [ ] Calculate System
-  - [ ] Memory Management
+  - [X] Memory Management
 
 - Memory:
-  - [ ] Save to Memory
-  - [ ] Read from Memory 
+  - [X] Save to Memory
+  - [X] Read from Memory 
   - [ ] Copy Display to Memory
 
   
