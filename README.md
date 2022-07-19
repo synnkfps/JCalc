@@ -6,16 +6,16 @@ Currently it's only runnable, from *Intellij IDEA*, later I'll do a *Gradle* ver
 
 ### Features
 - Current features:
-  [X] Clear Display
-  [X] Backspace 
-  [X] Button Inputing
-  [ ] Calculate System
-  [ ] Memory Management
+  - [X] Clear Display
+  - [X] Backspace 
+  - [X] Button Inputing
+  - [ ] Calculate System
+  - [ ] Memory Management
 
 - Memory:
-  [ ] Save to Memory
-  [ ] Read from Memory 
-  [ ] Copy Display to Memory
+  - [ ] Save to Memory
+  - [ ] Read from Memory 
+  - [ ] Copy Display to Memory
 
   
 
