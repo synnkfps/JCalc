@@ -127,7 +127,7 @@ public class Main extends JFrame {
             //---- sqrtButton ----
             sqrtButton.setText("sqrt");
             sqrtButton.addActionListener(e -> {
-                int parsed_result = Integer.parseInt(result.getText());
+                int parsed_result = Math.round(Integer.parseInt(result.getText()));
 
                 result.setText(String.valueOf(Math.pow(parsed_result, 0.5d)));
             });
@@ -222,7 +222,13 @@ public class Main extends JFrame {
             // Subtract
             subtract.setText("-");
             subtract.addActionListener(e -> {
-                Backend.addToBackend();
+                if (result.getText().contains("(") || result.getText().contains(")")) {
+                    Backend.needEval = true;
+                    Backend.updateDisplay("-");
+                } else {
+                    Backend.needEval = false;
+                    Backend.addToBackend();
+                }
                 Backend.operation = "-";
             });
             mainPanel.add(subtract, new GridBagConstraints(4, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
@@ -230,7 +236,13 @@ public class Main extends JFrame {
             // Multiply
             multiply.setText("*");
             multiply.addActionListener(e -> {
-                Backend.addToBackend();
+                if (result.getText().contains("(") || result.getText().contains(")")) {
+                    Backend.needEval = true;
+                    Backend.updateDisplay("*");
+                } else {
+                    Backend.needEval = false;
+                    Backend.addToBackend();
+                }
                 Backend.operation = "*";
             });
             mainPanel.add(multiply, new GridBagConstraints(4, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
@@ -238,7 +250,13 @@ public class Main extends JFrame {
             // Divide
             divide.setText("/");
             divide.addActionListener(e -> {
-                Backend.addToBackend();
+                if (result.getText().contains("(") || result.getText().contains(")")) {
+                    Backend.needEval = true;
+                    Backend.updateDisplay("/");
+                } else {
+                    Backend.needEval = false;
+                    Backend.addToBackend();
+                }
                 Backend.operation = "/";
             });
             mainPanel.add(divide, new GridBagConstraints(4, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
@@ -256,7 +274,13 @@ public class Main extends JFrame {
             // Percent
             percent.setText("%");
             percent.addActionListener(e -> {
-                Backend.addToBackend();
+                if (result.getText().contains("(") || result.getText().contains(")")) {
+                    Backend.needEval = true;
+                    Backend.updateDisplay("%");
+                } else {
+                    Backend.needEval = false;
+                    Backend.addToBackend();
+                }
                 Backend.operation = "%";
             });
             mainPanel.add(percent, new GridBagConstraints(5, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));

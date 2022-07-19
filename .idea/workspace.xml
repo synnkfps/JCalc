@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="+ Added Parenthesis Support&#10;+ Added Math evaluation">
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" afterDir="false" />
     </list>
@@ -281,7 +280,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658258374926</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!">
+      <created>1658262588485</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1658262588485</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -306,6 +312,7 @@
     <MESSAGE value="+ Added MR support" />
     <MESSAGE value="+ Added Float Support (little bloated i know)&#10;+ Added Change Sign&#10;+ Added Square Root&#10;+ Added Intelligent Result Display" />
     <MESSAGE value="+ Added Parenthesis Support&#10;+ Added Math evaluation" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Added Parenthesis Support&#10;+ Added Math evaluation" />
+    <MESSAGE value="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Added Dot support (later i change to &quot;,&quot; again)&#10;The Backend is kinda messy, but later I fix it!" />
   </component>
 </project>

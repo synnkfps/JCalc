@@ -13,19 +13,24 @@ public class Backend {
     public static Boolean needEval = false;
     public static Boolean waiting = false;
     public static Boolean is_floated = false;
+
     public static void updateDisplay(String text) {
 
         // Waiting == false | means that the user still did not press any operation
         if (!waiting) {
-            result.setText(result.getText() + text);
-            if (result.getText().length() > 1) {
-                if (result.getText().startsWith("0")) {
-                    if (!is_floated) {
-                        result.setText(result.getText().substring(1));
+            if (result.getText().endsWith(")")){
+                result.setText(result.getText() + "*" + text);
+            } else {
+                result.setText(result.getText() + text);
+                if (result.getText().length() > 1) {
+                    if (result.getText().startsWith("0")) {
+                        if (!is_floated) {
+                            result.setText(result.getText().substring(1));
+                        }
                     }
                 }
+                backend = result.getText();
             }
-            backend = result.getText();
         }
 
         // Waiting == false | means that the user pressed any operation
@@ -92,7 +97,7 @@ public class Backend {
                         }
                         break;
                 }
-            } else if (is_floated) {
+            } else {
                 switch (operation) {
                     case "+":
                         result.setText(String.valueOf(Float.parseFloat(backend) + Float.parseFloat(secondaryBackend)));
