@@ -122,87 +122,87 @@ public class Main extends JFrame {
 
             //---- sqrtButton ----
             sqrtButton.setText("sqrt");
+            sqrtButton.addActionListener(e -> {
+                int parsed_result = Integer.parseInt(result.getText());
+
+                result.setText(String.valueOf(Math.pow(parsed_result, 0.5d)));
+            });
             mainPanel.add(sqrtButton, new GridBagConstraints(5, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // 1
             button1.setText("1");
-            mainPanel.add(button1, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button1.addActionListener(e -> {
                 Backend.updateDisplay(1);
             });
+            mainPanel.add(button1, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
 
             // 2
             button2.setText("2");
-            mainPanel.add(button2, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button2.addActionListener(e -> {
                 Backend.updateDisplay(2);
             });
+            mainPanel.add(button2, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
 
             // 3
             button3.setText("3");
-            mainPanel.add(button3, new GridBagConstraints(3, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button3.addActionListener(e -> {
                 Backend.updateDisplay(3);
             });
+            mainPanel.add(button3, new GridBagConstraints(3, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
 
             // 4
             button4.setText("4");
-            mainPanel.add(button4, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button4.addActionListener(e -> {
                 Backend.updateDisplay(4);
             });
+            mainPanel.add(button4, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // 5
             button5.setText("5");
-            mainPanel.add(button5, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button5.addActionListener(e -> {
                 Backend.updateDisplay(5);
             });
+            mainPanel.add(button5, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // 6
             button6.setText("6");
-            mainPanel.add(button6, new GridBagConstraints(3, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button6.addActionListener(e -> {
                 Backend.updateDisplay(6);
             });
+            mainPanel.add(button6, new GridBagConstraints(3, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
 
             // 7
             button7.setText("7");
-            mainPanel.add(button7, new GridBagConstraints(1, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button7.addActionListener(e -> {
                 Backend.updateDisplay(7);
             });
+            mainPanel.add(button7, new GridBagConstraints(1, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // 8
             button8.setText("8");
-            mainPanel.add(button8, new GridBagConstraints(2, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button8.addActionListener(e -> {
                 Backend.updateDisplay(8);
             });
+            mainPanel.add(button8, new GridBagConstraints(2, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // 9
             button9.setText("9");
-            mainPanel.add(button9, new GridBagConstraints(3, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button9.addActionListener(e -> {
                 Backend.updateDisplay(9);
             });
+            mainPanel.add(button9, new GridBagConstraints(3, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+
 
             // 0
             button0.setText("0");
-            mainPanel.add(button0, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
             button0.addActionListener(e -> {
                 Backend.updateDisplay(0);
             });
+            mainPanel.add(button0, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Plus / Add
             add.setText("+");
@@ -211,7 +211,6 @@ public class Main extends JFrame {
                 Backend.operation = "+";
             });
             mainPanel.add(add, new GridBagConstraints(4, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
 
             // Subtract
             subtract.setText("-");
@@ -239,11 +238,20 @@ public class Main extends JFrame {
 
             // Change Sign
             change_sign.setText("+/-");
-            change_sign.setEnabled(false); // TODO
+            change_sign.addActionListener(e -> {
+                int parsed_result = Integer.parseInt(result.getText());
+                int math = parsed_result-(parsed_result * 2);
+
+                result.setText(String.valueOf(math));
+            });
             mainPanel.add(change_sign, new GridBagConstraints(3, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Percent
             percent.setText("%");
+            percent.addActionListener(e -> {
+                Backend.addToBackend();
+                Backend.operation = "%";
+            });
             mainPanel.add(percent, new GridBagConstraints(5, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Dot
@@ -340,6 +348,4 @@ public class Main extends JFrame {
     public static void main(String[] args) {
         new Main();
     }
-
-
 }
