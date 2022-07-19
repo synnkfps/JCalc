@@ -267,7 +267,8 @@ public class Main extends JFrame {
 
             // Memory Save
             memory_save.setModel(new DefaultComboBoxModel<>(new String[]{
-                    "MS"
+                    "MS",
+                    "MRT"
             }));
 
             memory_save.addActionListener(e -> { // Simple Lambda
@@ -275,6 +276,12 @@ public class Main extends JFrame {
                 switch (selected) {
                     case "MS":
                         writeMemory(result.getText());
+                        break;
+                    case "MRT":
+                        resetMemory();
+                        break;
+                    default:
+                        // TODO: Backend holder
                         break;
                 }
             });
@@ -291,21 +298,28 @@ public class Main extends JFrame {
                 String selected = (String) memory_read.getSelectedItem();
                 switch (selected) {
                     case "MR":
-                        // Nested for loop.
-                        readMemory();
+
                         break;
                     default:
-                        msgBox((String) memory_read.getSelectedItem());
+                        // TODO: Backend holder
+                        break;
                 }
             });
-            // memory_read.setEnabled(false); // TODO
+            memory_read.setEnabled(false);
             mainPanel.add(memory_read, new GridBagConstraints(4, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Memory Add Display Value
             memory_add_display_value.setModel(new DefaultComboBoxModel<>(new String[]{
                     "M+"
             }));
-            // memory_add_display_value.setEnabled(false); // TODO
+            memory_add_display_value.addActionListener(e -> {
+                String selected = (String) memory_read.getSelectedItem();
+                switch (selected) {
+                    case "M+":
+                        copyDisplayToMemory();
+                }
+            });
+            memory_add_display_value.setEnabled(false);
             mainPanel.add(memory_add_display_value, new GridBagConstraints(5, 4, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             mainPanel.add(vSpacer3, new GridBagConstraints(2, 5, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.VERTICAL, new Insets(0, 0, 0, 0), 0, 0));
@@ -320,8 +334,22 @@ public class Main extends JFrame {
                     new Insets(0, 0, 0, 0), 0, 30));
         }
     }
+    // Copy Display System
+    public void copyDisplayToMemory() {
+        if (basicMemory.size() == 0) {
+            msgBox("The memory needs to have at least 1 value in it.\n");
+        }
+    }
 
+    // Write Memory System
     public void writeMemory(String input) {
+        if (memory_read.isEnabled() && memory_add_display_value.isEnabled()) {
+            System.out.print("Already enabled\n");
+        } else {
+            memory_read.setEnabled(true);
+            memory_add_display_value.setEnabled(true);
+        }
+
         if (basicMemory.contains(input)) {
             System.out.printf("%s is already in memory.\n", input);
         } else {
@@ -330,21 +358,52 @@ public class Main extends JFrame {
             } catch (Exception e) { } finally {
                 System.out.printf("Added %s to memory.\n", input);
                 memory_save.addItem(input);
+                memory_read.addItem(input);
+                memory_add_display_value.addItem(input);
             }
         }
     }
-    public void readMemory() {
-        int i = 0;
-        for (String elm: basicMemory) {
-            i++;
-            if (memory_read.getModel().getElementAt(i) == elm) {
-                System.out.printf("%s Already in memory.\n", elm);
-            } else {
-                memory_read.addItem(elm);
-            }
+    // Reset System
+    public void resetMemory() {
+        if (basicMemory.size() == 0) {
+            msgBox("The memory is already empty.\n");
         }
-    }
+        basicMemory.clear();
+        // ms
+        memory_save.removeAllItems();
+        memory_save.addItem("MS");
+        memory_save.addItem("MRT");
 
+        if (memory_read.getModel().getSize() <= 1) {
+            System.out.println("Nothing to remove in MR");
+        } else {
+
+            try {
+                memory_read.removeAllItems();
+            } catch (NullPointerException e) {
+
+            }
+            memory_read.updateUI();
+            memory_read.addItem("MR");
+        }
+
+        if (memory_add_display_value.getModel().getSize() <= 1) {
+            System.out.println("Nothing to remove in M+");
+        } else {
+
+            try {
+                memory_add_display_value.removeAllItems();
+            } catch (NullPointerException e) {
+
+            }
+            memory_add_display_value.updateUI();
+            memory_add_display_value.addItem("M+");
+        }
+
+        // log
+        System.out.print("Memory got reset.\n");
+
+    }
     public void msgBox(String text) {
         JOptionPane.showMessageDialog(null, text);
     }
