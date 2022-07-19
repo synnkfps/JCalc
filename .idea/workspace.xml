@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions">
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="memory management features MR and M+ gets enabled if there are any value in memory that is not 0.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Memory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -93,7 +97,7 @@
       <recent name="$PROJECT_DIR$/src/me.synnk" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Gradle.Calculator [build]">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="me.synnk.Main" />
       <module name="Calculator.main" />
@@ -230,7 +234,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658244210969</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="memory management features MR and M+ gets enabled if there are any value in memory that is not 0.">
+      <created>1658245293789</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1658245293789</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -249,6 +260,7 @@
     <MESSAGE value="fixed not centered gui and removed &quot;Calculator&quot; label." />
     <MESSAGE value="added memory system (basic)" />
     <MESSAGE value="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions" />
+    <MESSAGE value="memory management features MR and M+ gets enabled if there are any value in memory that is not 0." />
+    <option name="LAST_COMMIT_MESSAGE" value="memory management features MR and M+ gets enabled if there are any value in memory that is not 0." />
   </component>
 </project>

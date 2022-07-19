@@ -20,10 +20,6 @@ configurations {
     implementation.extendsFrom include
 }
 
-dependencies {
-    include 'com.formdev:flatlaf:2.3'
-}
-
 task shadowJar(type: Jar) {
     classifier 'release'
     with jar
