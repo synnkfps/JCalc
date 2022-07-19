@@ -2,7 +2,13 @@
 ### Java GUI Calculator, based on ***Galculator***.
 
 It's a small project that I'm working on, just to learn how to use JFrame correctly. I still don't know if I'm doing it right, lol! <br>
-Currently it's only runnable, from *Intellij IDEA*, later I'll do a *Gradle* version.
+
+### Building
+1. Click on `Code` and then `Download ZIP` <br>
+2. Extract the zip on a folder <br>
+3. Open the folder on terminal and execute `gradlew build` 
+
+The `jar` will be on `\build\libs\`.
 
 ### Features
 - Current features:
