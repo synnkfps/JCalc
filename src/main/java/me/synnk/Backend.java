@@ -12,13 +12,18 @@ public class Backend {
     public static String secondaryBackend;
     public static Boolean needEval = false;
     public static Boolean waiting = false;
+    public static Boolean is_floated = false;
     public static void updateDisplay(String text) {
 
         // Waiting == false | means that the user still did not press any operation
         if (!waiting) {
             result.setText(result.getText() + text);
-            if (result.getText().length() > 1 && result.getText().startsWith("0")) {
-                result.setText(result.getText().substring(1));
+            if (result.getText().length() > 1) {
+                if (result.getText().startsWith("0")) {
+                    if (!is_floated) {
+                        result.setText(result.getText().substring(1));
+                    }
+                }
             }
             backend = result.getText();
         }
@@ -41,51 +46,73 @@ public class Backend {
 
     public static void calculate() {
         // TODO: If user still did not press equals, means that they still want to calculate
-        if (needEval) {
-            Expression eval = new ExpressionBuilder(result.getText()).build();
-            String eval_result = String.valueOf(eval.evaluate());
-            if (eval_result.endsWith(".0")){
-                eval_result = eval_result.replace(".0", "");
-            }
-            result.setText(eval_result);
-        } else {
-            switch (operation) {
-                case "+":
-                    if (String.valueOf(Float.parseFloat(backend) + Float.parseFloat(secondaryBackend)).endsWith(".0")) {
-                        result.setText(String.valueOf(Integer.parseInt(backend) + Integer.parseInt(secondaryBackend)));
-                    } else {
+        try {
+            if (needEval) {
+                Expression eval = new ExpressionBuilder(result.getText()).build();
+                String eval_result = String.valueOf(eval.evaluate());
+                if (eval_result.endsWith(".0")) {
+                    eval_result = eval_result.replace(".0", "");
+                }
+                result.setText(eval_result);
+            } else if (!is_floated) {
+                switch (operation) {
+                    case "+":
+                        if (String.valueOf(Float.parseFloat(backend) + Float.parseFloat(secondaryBackend)).endsWith(".0")) {
+                            result.setText(String.valueOf(Integer.parseInt(backend) + Integer.parseInt(secondaryBackend)));
+                        } else {
+                            result.setText(String.valueOf(Float.parseFloat(backend) + Float.parseFloat(secondaryBackend)));
+                        }
+                        break;
+                    case "-":
+                        if (String.valueOf(Float.parseFloat(backend) - Float.parseFloat(secondaryBackend)).endsWith(".0")) {
+                            result.setText(String.valueOf(Integer.parseInt(backend) - Integer.parseInt(secondaryBackend)));
+                        } else {
+                            result.setText(String.valueOf(Float.parseFloat(backend) - Float.parseFloat(secondaryBackend)));
+                        }
+                        break;
+                    case "*":
+                        if (String.valueOf(Float.parseFloat(backend) * Float.parseFloat(secondaryBackend)).endsWith(".0")) {
+                            result.setText(String.valueOf(Integer.parseInt(backend) * Integer.parseInt(secondaryBackend)));
+                        } else {
+                            result.setText(String.valueOf(Float.parseFloat(backend) * Float.parseFloat(secondaryBackend)));
+                        }
+                        break;
+                    case "/":
+                        if (String.valueOf(Float.parseFloat(backend) / Float.parseFloat(secondaryBackend)).endsWith(".0")) {
+                            result.setText(String.valueOf(Integer.parseInt(backend) / Integer.parseInt(secondaryBackend)));
+                        } else {
+                            result.setText(String.valueOf(Float.parseFloat(backend) / Float.parseFloat(secondaryBackend)));
+                        }
+                        break;
+                    case "%":
+                        if (String.valueOf((Float.parseFloat(backend) / 100F) * Float.parseFloat(secondaryBackend)).endsWith(".0")) {
+                            result.setText(String.valueOf((Float.parseFloat(backend) / 100F) * Integer.parseInt(secondaryBackend)));
+                        } else {
+                            result.setText(String.valueOf((Float.parseFloat(backend) / 100F) * Float.parseFloat(secondaryBackend)));
+                        }
+                        break;
+                }
+            } else if (is_floated) {
+                switch (operation) {
+                    case "+":
                         result.setText(String.valueOf(Float.parseFloat(backend) + Float.parseFloat(secondaryBackend)));
-                    }
-                    break;
-                case "-":
-                    if (String.valueOf(Float.parseFloat(backend) - Float.parseFloat(secondaryBackend)).endsWith(".0")) {
-                        result.setText(String.valueOf(Integer.parseInt(backend) - Integer.parseInt(secondaryBackend)));
-                    } else {
+                        break;
+                    case "-":
                         result.setText(String.valueOf(Float.parseFloat(backend) - Float.parseFloat(secondaryBackend)));
-                    }
-                    break;
-                case "*":
-                    if (String.valueOf(Float.parseFloat(backend) * Float.parseFloat(secondaryBackend)).endsWith(".0")) {
-                        result.setText(String.valueOf(Integer.parseInt(backend) * Integer.parseInt(secondaryBackend)));
-                    } else {
+                        break;
+                    case "*":
                         result.setText(String.valueOf(Float.parseFloat(backend) * Float.parseFloat(secondaryBackend)));
-                    }
-                    break;
-                case "/":
-                    if (String.valueOf(Float.parseFloat(backend) / Float.parseFloat(secondaryBackend)).endsWith(".0")) {
-                        result.setText(String.valueOf(Integer.parseInt(backend) / Integer.parseInt(secondaryBackend)));
-                    } else {
+                        break;
+                    case "/":
                         result.setText(String.valueOf(Float.parseFloat(backend) / Float.parseFloat(secondaryBackend)));
-                    }
-                    break;
-                case "%":
-                    if (String.valueOf((Float.parseFloat(backend) / 100F) * Float.parseFloat(secondaryBackend)).endsWith(".0")) {
-                        result.setText(String.valueOf((Float.parseFloat(backend) / 100F) * Integer.parseInt(secondaryBackend)));
-                    } else {
+                        break;
+                    case "%":
                         result.setText(String.valueOf((Float.parseFloat(backend) / 100F) * Float.parseFloat(secondaryBackend)));
-                    }
-                    break;
+                        break;
+                }
             }
-        }
+        } catch (NumberFormatException ignored) { }
+        backend = result.getText();
+        secondaryBackend = "";
     }
 }

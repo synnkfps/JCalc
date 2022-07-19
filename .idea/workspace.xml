@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="+ Added Float Support (little bloated i know)&#10;+ Added Change Sign&#10;+ Added Square Root&#10;+ Added Intelligent Result Display">
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="+ Added Parenthesis Support&#10;+ Added Math evaluation">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" afterDir="false" />
@@ -96,7 +95,7 @@
       <recent name="$PROJECT_DIR$/src/me.synnk" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Calculator [build]">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="me.synnk.Main" />
       <module name="Calculator.main" />
@@ -275,7 +274,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658256447930</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="+ Added Parenthesis Support&#10;+ Added Math evaluation">
+      <created>1658258374926</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1658258374926</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -299,6 +305,7 @@
     <MESSAGE value="+ Made the simple operation button work. &#10;- temporary bug on save to memory but im fixing it...&#10;+ update to 2.0" />
     <MESSAGE value="+ Added MR support" />
     <MESSAGE value="+ Added Float Support (little bloated i know)&#10;+ Added Change Sign&#10;+ Added Square Root&#10;+ Added Intelligent Result Display" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ Added Float Support (little bloated i know)&#10;+ Added Change Sign&#10;+ Added Square Root&#10;+ Added Intelligent Result Display" />
+    <MESSAGE value="+ Added Parenthesis Support&#10;+ Added Math evaluation" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Added Parenthesis Support&#10;+ Added Math evaluation" />
   </component>
 </project>

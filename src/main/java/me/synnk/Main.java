@@ -211,12 +211,11 @@ public class Main extends JFrame {
                 if (result.getText().contains("(") || result.getText().contains(")")) {
                     Backend.needEval = true;
                     Backend.updateDisplay("+");
-                    Backend.operation = "+";
                 } else {
                     Backend.needEval = false;
                     Backend.addToBackend();
-                    Backend.operation = "+";
                 }
+                Backend.operation = "+";
             });
             mainPanel.add(add, new GridBagConstraints(4, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
@@ -263,8 +262,13 @@ public class Main extends JFrame {
             mainPanel.add(percent, new GridBagConstraints(5, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Dot
-            decimal_point.setText(",");
-            decimal_point.setEnabled(false); // TODO
+            decimal_point.setText(".");
+            decimal_point.addActionListener(e -> {
+                if (!result.getText().contains(".")) {
+                    Backend.is_floated = true;
+                    Backend.updateDisplay(".");
+                }
+            });
             mainPanel.add(decimal_point, new GridBagConstraints(2, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // Memory Save
