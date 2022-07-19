@@ -10,6 +10,8 @@ It's a small project that I'm working on, just to learn how to use JFrame correc
 
 The `jar` will be on `\build\libs\`.
 
+Or you can download it [here](https://github.com/synnkfps/JCalc/releases/tag/JCalc-5.0)
+
 ### Features
 - Current features:
   - [X] Clear Display
