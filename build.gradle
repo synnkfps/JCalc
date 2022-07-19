@@ -20,6 +20,10 @@ configurations {
     implementation.extendsFrom include
 }
 
+dependencies {
+    include 'net.objecthunter:exp4j:0.4.8'
+}
+
 task shadowJar(type: Jar) {
     classifier 'release'
     with jar
