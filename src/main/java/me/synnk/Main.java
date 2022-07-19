@@ -343,25 +343,31 @@ public class Main extends JFrame {
 
     // Write Memory System
     public void writeMemory(String input) {
-        if (memory_read.isEnabled() && memory_add_display_value.isEnabled()) {
-            System.out.print("Already enabled\n");
-        } else {
-            memory_read.setEnabled(true);
-            memory_add_display_value.setEnabled(true);
-        }
-
-        if (basicMemory.contains(input)) {
-            System.out.printf("%s is already in memory.\n", input);
-        } else {
-            try {
-                basicMemory.add(input);
-            } catch (Exception e) { } finally {
-                System.out.printf("Added %s to memory.\n", input);
-                memory_save.addItem(input);
-                memory_read.addItem(input);
-                memory_add_display_value.addItem(input);
+            if (memory_read.isEnabled() && memory_add_display_value.isEnabled()) {
+                System.out.print("Already enabled\n");
+            } else {
+                if (!result.getText().equals("0")) {
+                    memory_read.setEnabled(true);
+                    memory_add_display_value.setEnabled(true);
+                } else { }
             }
-        }
+
+            if (basicMemory.contains(input)) {
+                System.out.printf("%s is already in memory.\n", input);
+            } else {
+                try {
+                    if (!result.getText().equals("0")) {
+                        basicMemory.add(input);
+
+                        System.out.printf("Added %s to memory.\n", input);
+                        memory_save.addItem(input);
+                        memory_read.addItem(input);
+                        memory_add_display_value.addItem(input);
+                    } else { }
+                } catch (Exception e) {
+                }
+            }
+
     }
     // Reset System
     public void resetMemory() {
@@ -385,6 +391,7 @@ public class Main extends JFrame {
             }
             memory_read.updateUI();
             memory_read.addItem("MR");
+            memory_read.setEnabled(false);
         }
 
         if (memory_add_display_value.getModel().getSize() <= 1) {
@@ -398,6 +405,7 @@ public class Main extends JFrame {
             }
             memory_add_display_value.updateUI();
             memory_add_display_value.addItem("M+");
+            memory_add_display_value.setEnabled(false);
         }
 
         // log

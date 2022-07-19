@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="added memory system (basic)">
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Main.java" afterDir="false" />
     </list>
@@ -76,17 +76,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/synnk/Desktop/JMath&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/synnk/Desktop/JMath",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "run.code.analysis.last.selected.profile": "pProject Default"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/me.synnk" />
@@ -222,7 +223,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658240526504</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions">
+      <created>1658244210969</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1658244210969</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,6 +248,7 @@
     <MESSAGE value="moved to gradle" />
     <MESSAGE value="fixed not centered gui and removed &quot;Calculator&quot; label." />
     <MESSAGE value="added memory system (basic)" />
-    <option name="LAST_COMMIT_MESSAGE" value="added memory system (basic)" />
+    <MESSAGE value="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions" />
   </component>
 </project>
