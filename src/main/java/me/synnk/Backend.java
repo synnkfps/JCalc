@@ -1,8 +1,5 @@
 package me.synnk;
 
-import me.synnk.Main;
-import me.synnk.Memory;
-
 import static me.synnk.Main.result;
 
 public class Backend {
@@ -40,17 +37,18 @@ public class Backend {
     }
 
     public static void calculate() {
-        // DEBUG: Memory.msgBox(String.format("Backend: %s\nSec. Backend: %s", backend, secondaryBackend));
-        if (operation == "+") {
+        // DEBUG: Memory.msgBox(String.format("Backend: %s\nS
+        // ec. Backend: %s", backend, secondaryBackend));
+        if (operation.equals("+")) {
             result.setText(String.valueOf(Integer.parseInt(backend) + Integer.parseInt(secondaryBackend)));
         }
-        if (operation == "-") {
+        if (operation.equals("-")) {
             result.setText(String.valueOf(Integer.parseInt(backend) - Integer.parseInt(secondaryBackend)));
         }
-        if (operation == "*") {
+        if (operation.equals("*")) {
             result.setText(String.valueOf(Integer.parseInt(backend) * Integer.parseInt(secondaryBackend)));
         }
-        if (operation == "/") {
+        if (operation.equals("/")) {
             result.setText(String.valueOf(Integer.parseInt(backend) / Integer.parseInt(secondaryBackend)));
         }
     }

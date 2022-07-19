@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="separed Memory Management System from the Main class">
+    <list default="true" id="6ff1ceeb-6a17-4463-a19d-8c489d77d1b1" name="Changes" comment="+ Made the simple operation button work. &#10;- temporary bug on save to memory but im fixing it...&#10;+ update to 2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/me/synnk/Backend.java" afterDir="false" />
@@ -247,7 +247,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658246211644</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="+ Made the simple operation button work. &#10;- temporary bug on save to memory but im fixing it...&#10;+ update to 2.0">
+      <created>1658248349724</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1658248349724</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +275,7 @@
     <MESSAGE value="- make memory management functions MR and M+ disabled, now they need any value in memory to get enabled.&#10;&#10;- removed readMemory system as its useless&#10;&#10;- writeMemory now enables all the other memory management functions" />
     <MESSAGE value="memory management features MR and M+ gets enabled if there are any value in memory that is not 0." />
     <MESSAGE value="separed Memory Management System from the Main class" />
-    <option name="LAST_COMMIT_MESSAGE" value="separed Memory Management System from the Main class" />
+    <MESSAGE value="+ Made the simple operation button work. &#10;- temporary bug on save to memory but im fixing it...&#10;+ update to 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ Made the simple operation button work. &#10;- temporary bug on save to memory but im fixing it...&#10;+ update to 2.0" />
   </component>
 </project>

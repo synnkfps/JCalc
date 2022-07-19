@@ -1,8 +1,6 @@
 package me.synnk;
 
 import javax.swing.*;
-import me.synnk.Main;
-
 import java.util.ArrayList;
 
 public class Memory {
@@ -27,7 +25,7 @@ public class Memory {
             if (!result.getText().equals("0")) {
                 memory_read.setEnabled(true);
                 memory_add_display_value.setEnabled(true);
-            } else { }
+            }
         }
 
         if (basicMemory.contains(input)) {
@@ -41,30 +39,40 @@ public class Memory {
                     memory_save.addItem(input);
                     memory_read.addItem(input);
                     memory_add_display_value.addItem(input);
-                } else { }
-            } catch (Exception e) {
-            }
+                }
+            } catch (Exception ignored) { }
         }
 
     }
     // Reset System
     public static void resetMemory() {
         if (basicMemory.size() == 0) {
-            msgBox("The memory is already empty.\n");
+            System.out.println("The memory is already empty.\n");
         }
         basicMemory.clear();
         // ms
-        memory_save.removeAllItems();
-        memory_save.addItem("MS");
-        memory_save.addItem("MRT");
+        if (memory_save.getModel().getSize() <= 2) {
+            System.out.println("Nothing to remove in MR");
+        } else {
 
+            try {
+                memory_save.removeAllItems();
+            } catch (NullPointerException ignored) {
+
+            }
+            memory_save.updateUI();
+            memory_save.addItem("MS");
+            memory_save.addItem("MRT");
+        }
+
+        // mr
         if (memory_read.getModel().getSize() <= 1) {
             System.out.println("Nothing to remove in MR");
         } else {
 
             try {
                 memory_read.removeAllItems();
-            } catch (NullPointerException e) {
+            } catch (NullPointerException ignored) {
 
             }
             memory_read.updateUI();
@@ -72,13 +80,14 @@ public class Memory {
             memory_read.setEnabled(false);
         }
 
+        // m+
         if (memory_add_display_value.getModel().getSize() <= 1) {
             System.out.println("Nothing to remove in M+");
         } else {
 
             try {
                 memory_add_display_value.removeAllItems();
-            } catch (NullPointerException e) {
+            } catch (NullPointerException ignored) {
 
             }
             memory_add_display_value.updateUI();

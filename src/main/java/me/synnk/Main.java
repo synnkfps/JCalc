@@ -1,7 +1,5 @@
 package me.synnk;
 
-import me.synnk.Backend;
-import me.synnk.Memory;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -17,17 +15,6 @@ public class Main extends JFrame {
     public static JComboBox<String> memory_read = new JComboBox<>();
     public static JComboBox<String> memory_add_display_value = new JComboBox<>();
 
-    private JButton Button0;
-    private JButton Button1;
-    private JButton Button2;
-    private JButton Button3;
-    private JButton Button4;
-    private JButton Button5;
-    private JButton Button6;
-    private JButton Button7;
-    private JButton Button8;
-    private JButton Button9;
-
     private void initComponents() {
         mainPanel = new JPanel();
         result = new JTextField();
@@ -42,16 +29,16 @@ public class Main extends JFrame {
         JButton open_parenthesis = new JButton();
 
         // Numbers
-        Button0 = new JButton();
-        Button1 = new JButton();
-        Button2 = new JButton();
-        Button3 = new JButton();
-        Button4 = new JButton();
-        Button5 = new JButton();
-        Button6 = new JButton();
-        Button7 = new JButton();
-        Button8 = new JButton();
-        Button9 = new JButton();
+        JButton button0 = new JButton();
+        JButton button1 = new JButton();
+        JButton button2 = new JButton();
+        JButton button3 = new JButton();
+        JButton button4 = new JButton();
+        JButton button5 = new JButton();
+        JButton button6 = new JButton();
+        JButton button7 = new JButton();
+        JButton button8 = new JButton();
+        JButton button9 = new JButton();
 
         // Action Buttons
         JButton add = new JButton();
@@ -96,12 +83,14 @@ public class Main extends JFrame {
                 } else if (Backend.operation == "") {
                     Backend.secondaryBackend = "";
                     Backend.backend = "";
+
                 }
             });
 
             // Clear All
             ACButton.setText("AC");
             ACButton.addActionListener(e -> {
+                Memory.resetMemory();
                 result.setText("0");
                 Backend.backend = "";
                 Backend.secondaryBackend = "";
@@ -136,82 +125,82 @@ public class Main extends JFrame {
             mainPanel.add(sqrtButton, new GridBagConstraints(5, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
             // 1
-            Button1.setText("1");
-            mainPanel.add(Button1, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button1.setText("1");
+            mainPanel.add(button1, new GridBagConstraints(1, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button1.addActionListener(e -> {
+            button1.addActionListener(e -> {
                 Backend.updateDisplay(1);
             });
 
             // 2
-            Button2.setText("2");
-            mainPanel.add(Button2, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button2.setText("2");
+            mainPanel.add(button2, new GridBagConstraints(2, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button2.addActionListener(e -> {
+            button2.addActionListener(e -> {
                 Backend.updateDisplay(2);
             });
 
             // 3
-            Button3.setText("3");
-            mainPanel.add(Button3, new GridBagConstraints(3, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button3.setText("3");
+            mainPanel.add(button3, new GridBagConstraints(3, 6, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button3.addActionListener(e -> {
+            button3.addActionListener(e -> {
                 Backend.updateDisplay(3);
             });
 
             // 4
-            Button4.setText("4");
-            mainPanel.add(Button4, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button4.setText("4");
+            mainPanel.add(button4, new GridBagConstraints(1, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button4.addActionListener(e -> {
+            button4.addActionListener(e -> {
                 Backend.updateDisplay(4);
             });
 
             // 5
-            Button5.setText("5");
-            mainPanel.add(Button5, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button5.setText("5");
+            mainPanel.add(button5, new GridBagConstraints(2, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button5.addActionListener(e -> {
+            button5.addActionListener(e -> {
                 Backend.updateDisplay(5);
             });
 
             // 6
-            Button6.setText("6");
-            mainPanel.add(Button6, new GridBagConstraints(3, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button6.setText("6");
+            mainPanel.add(button6, new GridBagConstraints(3, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button6.addActionListener(e -> {
+            button6.addActionListener(e -> {
                 Backend.updateDisplay(6);
             });
 
             // 7
-            Button7.setText("7");
-            mainPanel.add(Button7, new GridBagConstraints(1, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button7.setText("7");
+            mainPanel.add(button7, new GridBagConstraints(1, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button7.addActionListener(e -> {
+            button7.addActionListener(e -> {
                 Backend.updateDisplay(7);
             });
 
             // 8
-            Button8.setText("8");
-            mainPanel.add(Button8, new GridBagConstraints(2, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button8.setText("8");
+            mainPanel.add(button8, new GridBagConstraints(2, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button8.addActionListener(e -> {
+            button8.addActionListener(e -> {
                 Backend.updateDisplay(8);
             });
 
             // 9
-            Button9.setText("9");
-            mainPanel.add(Button9, new GridBagConstraints(3, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button9.setText("9");
+            mainPanel.add(button9, new GridBagConstraints(3, 10, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button9.addActionListener(e -> {
+            button9.addActionListener(e -> {
                 Backend.updateDisplay(9);
             });
 
             // 0
-            Button0.setText("0");
-            mainPanel.add(Button0, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+            button0.setText("0");
+            mainPanel.add(button0, new GridBagConstraints(1, 12, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
 
-            Button0.addActionListener(e -> {
+            button0.addActionListener(e -> {
                 Backend.updateDisplay(0);
             });
 
@@ -238,9 +227,7 @@ public class Main extends JFrame {
                 Backend.addToBackend();
                 Backend.operation = "*";
             });
-
             mainPanel.add(multiply, new GridBagConstraints(4, 8, 1, 1, 0.0, 0.0, GridBagConstraints.CENTER, GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
 
             // Divide
             divide.setText("/");
@@ -274,13 +261,14 @@ public class Main extends JFrame {
                 String selected = (String) memory_save.getSelectedItem();
                 switch (selected) {
                     case "MS":
-                            Memory.result.getText();
+                            Memory.writeMemory(result.getText());
                         break;
                     case "MRT":
                             Memory.resetMemory();
                         break;
                     default:
-                        // TODO: Backend holder
+                        // TODO: Replace current selected item with result.getText().
+
                         break;
                 }
             });
@@ -297,10 +285,10 @@ public class Main extends JFrame {
                 String selected = (String) memory_read.getSelectedItem();
                 switch (selected) {
                     case "MR":
-
                         break;
                     default:
-                        // TODO: Backend holder
+                        Backend.secondaryBackend = memory_read.getSelectedItem().toString();
+                        result.setText(Backend.secondaryBackend);
                         break;
                 }
             });
