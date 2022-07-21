@@ -17,7 +17,7 @@ Or you can download it [here](https://github.com/synnkfps/JCalc/releases/tag/JCa
   - [X] Clear Display
   - [X] Backspace 
   - [X] Button Inputing
-  - [ ] Calculate System
+  - [X] Calculate System
   - [X] Memory Management
 
 - Memory:
