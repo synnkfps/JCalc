@@ -5,7 +5,7 @@ It's a small project that I'm working on, just to learn how to use JFrame correc
 
 ### Building
 1. Click on `Code` and then `Download ZIP` <br>
-2. Extract the zip on a folder <br>
+2. Extract the zip to a folder <br>
 3. Open the folder on terminal and execute `gradlew build` 
 
 The `jar` will be on `\build\libs\`.
